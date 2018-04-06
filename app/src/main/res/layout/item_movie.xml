@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mkhaleghy.cinemakt.main.daylist.MovieView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:paddingTop="5dp"
+    tools:background="@color/amber_200">
+
+    <android.support.v7.widget.CardView
+        android:transitionName="card"
+        android:id="@+id/cv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="#fff"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/sp_startOfCard"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:cardBackgroundColor="@color/red_500"
+        >
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:elevation="6dp"
+        android:orientation="vertical"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/iv_icon"
+        app:layout_constraintRight_toRightOf="@id/cv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/green_200"
+        >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:transitionName="title"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="Kong Skull Island"
+            android:textAppearance="@style/Title"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:transitionName="subtitle"
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="by jordan Vogt-Roberts"
+            android:textAppearance="@style/Small"
+            android:textColor="@color/subtitle_color" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.AppCompatRatingBar
+                android:id="@+id/rb_rate"
+                android:transitionName="rate"
+                style="?android:ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:isIndicator="true"
+                tools:rating="4" />
+
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/tv_genre"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:text="Drama| Adventures|"
+            android:textAppearance="@style/Small"
+            android:textColor="#778bae"
+            android:lines="1"
+            android:layout_marginRight="50dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <android.support.v4.widget.Space
+        android:id="@+id/sp_startOfCard"
+        android:layout_width="1dp"
+        android:layout_height="10dp"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_icon"
+        app:layout_constraintRight_toRightOf="@+id/iv_icon" />
+
+    <com.github.siyamed.shapeimageview.RoundedImageView
+        android:id="@+id/iv_icon"
+        android:transitionName="icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:elevation="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:siRadius="8dp"
+        app:siSquare="true"
+        tools:background="@color/green_200"
+        tools:src="@drawable/walle" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textAppearance="@style/Small"
+        android:textColor="#9daec3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_icon"
+        app:layout_constraintTop_toBottomOf="@+id/iv_icon"
+        tools:text="07:00" />
+
+    <ImageView
+        android:transitionName="ticket"
+        android:id="@+id/iv_ticket"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/blue_shape"
+        android:elevation="6dp"
+        android:padding="5dp"
+        android:src="@drawable/ticket"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/iv_overflow"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:elevation="6dp"
+        app:layout_constraintRight_toRightOf="@+id/cv"
+        app:layout_constraintTop_toTopOf="@+id/cv"
+        app:srcCompat="@drawable/ic_more" />
+
+
+</com.mkhaleghy.cinemakt.main.daylist.MovieView>

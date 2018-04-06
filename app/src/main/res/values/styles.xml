@@ -8,4 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="Title" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Body1" parent="Base.TextAppearance.AppCompat.Body2">
+
+    </style>
+
+    <style name="Small" parent="Base.TextAppearance.AppCompat.Small">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+
+
+
+
 </resources>
