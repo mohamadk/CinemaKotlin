@@ -8,6 +8,7 @@ import com.mkhaleghy.cinemakt.R
 import com.mkhaleghy.cinemakt.app.Ci
 
 import com.mkhaleghy.cinemakt.main.daylist.DayListFragment
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -15,8 +16,8 @@ import java.util.*
  * Created by mk on 3/2/2018.
  */
 
-class MainPagerAdapter(fm: FragmentManager, private val pageCount: Int = 30) : FragmentPagerAdapter(fm) {
-    internal var sdf = SimpleDateFormat("MMM dd")
+class MainPagerAdapter(fm: FragmentManager, private val pageCount: Int = 30, private val listener: DayListFragment.OnFragmentInteractionListener) : FragmentPagerAdapter(fm) {
+    internal var sdf = DateFormat.getDateInstance()
 
     private val items = SparseArray<DayListFragment>()
 
@@ -25,6 +26,7 @@ class MainPagerAdapter(fm: FragmentManager, private val pageCount: Int = 30) : F
         val fragment: DayListFragment
         if (position >= items.size()) {
             fragment = DayListFragment.newInstance(getItemTime(position), position)
+            fragment.mListener=listener
             items.append(position, fragment)
         } else {
             fragment = items.get(position)

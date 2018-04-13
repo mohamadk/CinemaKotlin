@@ -18,12 +18,12 @@ class ViewPagerTransform(var offset: Float = .5F) : ViewPager.PageTransformer {
     private lateinit var layoutManager: LinearLayoutManager
 
     internal lateinit var visibleItems: Array<View>
-    internal lateinit var mainView: View
+    internal var mainView: View? = null
 
     override fun transformPage(view: View, position: Float) {
         when (position) {
             in -1..1 -> {
-                if (mainView !== view) {
+                if (mainView != view) {
                     mainView = view
                     recyclerView = view.findViewById(R.id.rv_list)
                     layoutManager = recyclerView.layoutManager as LinearLayoutManager

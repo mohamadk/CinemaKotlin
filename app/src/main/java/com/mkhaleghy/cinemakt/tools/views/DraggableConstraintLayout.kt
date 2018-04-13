@@ -18,13 +18,13 @@ import android.view.animation.AccelerateInterpolator
  * Created by mk on 3/9/2018.
  */
 
-class DraggableConstraintLayout(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
+class DraggableConstraintLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
     : ConstraintLayout(context, attrs, defStyleAttr) {
     val TAG = "DraggableConstraintL"
 
     private lateinit var mDragHelper: ViewDragHelper
     internal lateinit var mDragView: View
-    private var mDragViewCover: View? = null
+    internal var mDragViewCover: View? = null
     internal var mDragController: DragController? = null
 
     internal var sAccelerator: TimeInterpolator = AccelerateInterpolator()
@@ -33,7 +33,7 @@ class DraggableConstraintLayout(context: Context, attrs: AttributeSet? = null, d
     internal var startTX: Float = 0F
     internal var startTY: Float = 0F
     internal var releasedChild: View? = null
-    private var maxDrag: Int = 0
+    internal var maxDrag: Int = 0
     private var canceledAnim: Boolean = false
     private var finishAfterRelease = false
 
@@ -149,10 +149,7 @@ class DraggableConstraintLayout(context: Context, attrs: AttributeSet? = null, d
                 }
             }
         })
-
-
     }
-
 
     override fun requestLayout() {
         super.requestLayout()
@@ -166,15 +163,12 @@ class DraggableConstraintLayout(context: Context, attrs: AttributeSet? = null, d
                 }
                 mDragViewCover?.visibility = View.INVISIBLE
             }
-
         }
     }
 
     interface DragController {
         fun onDragDrop(view: View, captured: Boolean)
-
         fun onDrag(dy: Int)
-
         fun finish()
     }
 

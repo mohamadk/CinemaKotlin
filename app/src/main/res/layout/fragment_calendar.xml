@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:rotation="180"
-        app:layout_behavior="com.mkhaleghy.cinema.main.RampLayoutBehavior"
+        android:visibility="gone"
+        app:layout_behavior="com.mkhaleghy.cinemakt.main.RampLayoutBehavior"
         app:layout_scrollFlags="scroll|enterAlways"
         app:riv_rampColor="@color/colorPrimary"
         app:riv_rampHeight="80dp"
@@ -22,6 +23,7 @@
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/apl_appbar"
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="0dp">
@@ -31,14 +33,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/yellow_600"
+            app:statusBarScrim="@color/yellow_600"
             app:layout_scrollFlags="scroll|snap">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_marginBottom="10dp"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 tools:background="@color/red_400" />
@@ -54,6 +56,7 @@
 
         <com.mkhaleghy.cinemakt.tools.views.SlidingTabLayout
             android:id="@+id/stl_tabs"
+            tools:background="@color/green_300"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@color/colorPrimary"

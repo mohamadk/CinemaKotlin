@@ -12,13 +12,14 @@ import com.mkhaleghy.cinemakt.R
 import com.mkhaleghy.cinemakt.base.Binder
 import com.mkhaleghy.cinemakt.base.OnAdapterInteractionListener
 import com.mkhaleghy.cinemakt.main.Movie
+import com.mkhaleghy.cinemakt.main.detail.DetailActivity
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 /**
  * Created by mk on 3/2/2018.
  */
 
-class MovieView(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+class MovieView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
         ConstraintLayout(context, attrs, defStyleAttr), Binder<Movie>, PopupMenu.OnMenuItemClickListener {
     val TAG = "MovieView"
     private var movie: Movie? = null
@@ -47,7 +48,16 @@ class MovieView(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int
             val ticketLoc = IntArray(2)
             iv_ticket.getLocationInWindow(ticketLoc)
             mListener.detailSelected()
-//            DetailActivity.start(context as Activity, movie?.detail, ticketLoc[1], iv_icon, iv_ticket, cv, tv_title, tv_subtitle, rb_rate)
+            DetailActivity.start(
+                    context as Activity
+                    , item.detail
+                    , ticketLoc[1]
+                    , iv_icon
+                    , iv_ticket
+                    , cv
+                    , tv_title
+                    , tv_subtitle
+                    , rb_rate)
         }
     }
 

@@ -15,7 +15,7 @@ class RecyclerAdapter(private val inflater: LayoutInflater,private val listener:
 
     //in case of add and remove or if you don't have that case just change mutableList to list
     // and get ride of casts
-    private lateinit var items: MutableList<*>
+    private var items = mutableListOf<Any>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder1 {
         return ViewHolder1(inflater.inflate(R.layout.item_movie, parent, false))
@@ -33,7 +33,7 @@ class RecyclerAdapter(private val inflater: LayoutInflater,private val listener:
         return items.size
     }
 
-    fun bindItems(elements: MutableList<*>) {
+    fun bindItems(elements: MutableList<Any>) {
         items = elements
         notifyDataSetChanged()
     }

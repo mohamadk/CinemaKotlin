@@ -4,31 +4,34 @@ import android.content.Context
 import android.graphics.*
 import android.support.v7.widget.AppCompatImageView
 import android.util.AttributeSet
+import android.util.Log
 import com.mkhaleghy.cinemakt.R
 
 /**
  * Created by mk on 3/8/2018.
  */
 
-class RampImageView(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : AppCompatImageView(context, attrs, defStyleAttr) {
+class RampImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+        AppCompatImageView(context, attrs, defStyleAttr) {
     val TAG = "RampImageView"
     private var rampHeight = 0
     private var paint = Paint()
     private var rampColor = 0
     private var rampBaias = 0F
-    private var rampDy = 0F
+    var rampDy = 0F
         set(value) {
             field = value
             invalidate()
         }
 
     private fun init(attrs: AttributeSet?) {
+        Log.d(TAG, "init: attr")
         val ta = context.obtainStyledAttributes(attrs, R.styleable.RampImageView)
 
         rampHeight = ta.getDimensionPixelSize(R.styleable.RampImageView_riv_rampHeight, 0)
         rampBaias = ta.getFloat(R.styleable.RampImageView_riv_rampStartPercent, 0f)
         rampColor = ta.getColor(R.styleable.RampImageView_riv_rampColor, Color.WHITE)
-
+        ta.recycle()
         paint.color = rampColor
     }
 

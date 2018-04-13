@@ -26,13 +26,13 @@ class DayListFragment : Fragment(), OnAdapterInteractionListener {
     private lateinit var calendar: Calendar
     private lateinit var adapter: RecyclerAdapter
 
-    private var mListener: OnFragmentInteractionListener? = null
+    var mListener: OnFragmentInteractionListener? = null
     private lateinit var viewModel: DayListViewModel
     private var pos = -1
 
     internal var movieItemsObserver: Observer<DayList> = Observer { dayList ->
         Log.d(TAG, "onChanged() called with: elements.size = [" + dayList?.movies?.size + "]")
-        adapter.bindItems(mutableListOf(dayList!!.movies))
+        adapter.bindItems(dayList!!.movies.toMutableList())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,8 +46,11 @@ class DayListFragment : Fragment(), OnAdapterInteractionListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_day_list, container, false)
+    }
 
-        val mainView = inflater.inflate(R.layout.fragment_day_list, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(DayListViewModel::class.java)
 
         val layoutManager = LinearLayoutManager(activity)
@@ -59,30 +62,13 @@ class DayListFragment : Fragment(), OnAdapterInteractionListener {
         val decorator = VerticalOverScrollBounceEffectDecorator(overScroll)
         decorator.setOverScrollUpdateListener { decor, state, offset ->
             if (!overScroll.isInAbsoluteEnd) {
-                mListener?.stretch(1 + offset / mainView.height, offset.toInt())
+                mListener?.stretch(1 + offset / getView()!!.height, offset.toInt())
             }
         }
 
         viewModel.items.observe(this, movieItemsObserver)
         viewModel.start()
-
-        return mainView
     }
-
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            mListener = context
-        } else {
-            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        mListener = null
-    }
-
 
     override fun detailSelected() {
         mListener?.detailSelected()
@@ -90,9 +76,7 @@ class DayListFragment : Fragment(), OnAdapterInteractionListener {
 
     interface OnFragmentInteractionListener {
         fun appbarLayout(): AppBarLayout
-
         fun stretch(offset: Float, offsetInPx: Int)
-
         fun detailSelected()
     }
 

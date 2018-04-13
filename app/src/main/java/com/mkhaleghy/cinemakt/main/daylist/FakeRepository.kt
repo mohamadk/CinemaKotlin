@@ -1,6 +1,7 @@
 package com.mkhaleghy.cinemakt.main.daylist
 
 import android.arch.lifecycle.MutableLiveData
+import com.google.gson.Gson
 import com.mkhaleghy.cinemakt.app.Ci
 
 import com.mkhaleghy.cinemakt.base.Repository
@@ -13,7 +14,7 @@ import com.mkhaleghy.cinemakt.tools.Utils
 
 object FakeRepository : Repository {
     override fun getData(elementsData: MutableLiveData<DayList>) {
-        val dayList = Ci.gson.fromJson(Utils.loadFileFromAssets("daylist.json"), DayList::class.java)
+        val dayList = Gson().fromJson(Utils.loadFileFromAssets("daylist.json"),DayList::class.java)
         elementsData.postValue(dayList)
     }
 }

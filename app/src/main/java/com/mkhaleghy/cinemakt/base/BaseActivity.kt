@@ -14,23 +14,17 @@ import com.mkhaleghy.cinemakt.R
  */
 
 abstract class BaseActivity : AppCompatActivity() {
-    protected lateinit var toolbar: Toolbar
-    protected lateinit var materialMenu: MaterialMenuDrawable
 
     protected abstract val layout: Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            val w = window
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            val w = window
+//            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+//        }
         setContentView(layout)
 
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
 
-        materialMenu = MaterialMenuDrawable(this, Color.WHITE, MaterialMenuDrawable.Stroke.REGULAR)
-        toolbar.navigationIcon = materialMenu
     }
 }
