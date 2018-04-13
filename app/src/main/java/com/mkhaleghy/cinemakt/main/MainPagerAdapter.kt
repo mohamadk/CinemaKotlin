@@ -16,8 +16,8 @@ import java.util.*
  * Created by mk on 3/2/2018.
  */
 
-class MainPagerAdapter(fm: FragmentManager, private val pageCount: Int = 30, private val listener: DayListFragment.OnFragmentInteractionListener) : FragmentPagerAdapter(fm) {
-    internal var sdf = DateFormat.getDateInstance()
+class MainPagerAdapter(fm: FragmentManager, private val pageCount: Int = 30, private val listener: DayListFragment.OnDayListInteractionListener) : FragmentPagerAdapter(fm) {
+    internal var sdf = SimpleDateFormat("MMM dd")
 
     private val items = SparseArray<DayListFragment>()
 

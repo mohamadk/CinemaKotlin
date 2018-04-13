@@ -2,7 +2,6 @@ package com.mkhaleghy.cinemakt.main.daylist
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v4.app.Fragment
@@ -26,7 +25,7 @@ class DayListFragment : Fragment(), OnAdapterInteractionListener {
     private lateinit var calendar: Calendar
     private lateinit var adapter: RecyclerAdapter
 
-    var mListener: OnFragmentInteractionListener? = null
+    var mListener: OnDayListInteractionListener? = null
     private lateinit var viewModel: DayListViewModel
     private var pos = -1
 
@@ -74,7 +73,7 @@ class DayListFragment : Fragment(), OnAdapterInteractionListener {
         mListener?.detailSelected()
     }
 
-    interface OnFragmentInteractionListener {
+    interface OnDayListInteractionListener {
         fun appbarLayout(): AppBarLayout
         fun stretch(offset: Float, offsetInPx: Int)
         fun detailSelected()
