@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.TimeInterpolator
 import android.content.Context
+import android.graphics.Rect
 import android.support.constraint.ConstraintLayout
 import android.support.v4.widget.ViewDragHelper
 import android.util.AttributeSet
@@ -13,6 +14,13 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.animation.AccelerateInterpolator
+import android.view.ViewGroup
+
+import android.support.v4.view.ViewCompat
+
+
+
+
 
 /**
  * Created by mk on 3/9/2018.
@@ -87,6 +95,11 @@ class DraggableConstraintLayout @JvmOverloads constructor(context: Context, attr
                 mDragController?.onDragDrop(releasedChild, false)
                 releaseAnim(releasedChild, startX, startY)
             }
+        })
+
+        ViewCompat.setOnApplyWindowInsetsListener(this, { v, insets ->
+            (v.getLayoutParams() as ViewGroup.MarginLayoutParams).topMargin = insets.getSystemWindowInsetTop()
+            insets.consumeSystemWindowInsets()
         })
 
     }
@@ -171,5 +184,6 @@ class DraggableConstraintLayout @JvmOverloads constructor(context: Context, attr
         fun onDrag(dy: Int)
         fun finish()
     }
+
 
 }

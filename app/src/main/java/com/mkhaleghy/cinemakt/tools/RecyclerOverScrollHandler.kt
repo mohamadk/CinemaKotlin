@@ -12,14 +12,11 @@ import me.everything.android.ui.overscroll.adapters.RecyclerViewOverScrollDecorA
 
 class RecyclerOverScrollHandler : RecyclerViewOverScrollDecorAdapter, AppBarLayout.OnOffsetChangedListener {
     val TAG = "HandleAppbarLayout"
-    private lateinit var appBarLayout: AppBarLayout
     var isFullyExpanded = false
 
     constructor(recyclerView: RecyclerView) : super(recyclerView) {}
 
     constructor(appBarLayout: AppBarLayout, recyclerView: RecyclerView) : super(recyclerView) {
-        this.appBarLayout = appBarLayout
-
         appBarLayout.addOnOffsetChangedListener(this)
     }
 

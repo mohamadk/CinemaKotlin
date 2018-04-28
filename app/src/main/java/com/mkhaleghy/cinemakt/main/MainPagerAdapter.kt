@@ -21,7 +21,6 @@ class MainPagerAdapter(fm: FragmentManager, private val pageCount: Int = 30, pri
 
     private val items = SparseArray<DayListFragment>()
 
-
     override fun getItem(position: Int): Fragment {
         val fragment: DayListFragment
         if (position >= items.size()) {

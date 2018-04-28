@@ -7,11 +7,10 @@ import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
+import android.support.v4.view.ViewCompat
+import android.support.v7.app.AppCompatActivity
 import android.util.TypedValue
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewTreeObserver
+import android.view.*
 import com.mkhaleghy.cinemakt.R
 import com.mkhaleghy.cinemakt.base.BaseActivity
 import com.mkhaleghy.cinemakt.main.Detail
@@ -19,11 +18,9 @@ import com.mkhaleghy.cinemakt.tools.Utils
 import com.mkhaleghy.cinemakt.tools.views.DraggableConstraintLayout
 import kotlinx.android.synthetic.main.activity_detail.*
 
-class DetailActivity(override val layout: Int = R.layout.activity_detail) : BaseActivity() {
+class DetailActivity(override val layout: Int=R.layout.activity_detail) : BaseActivity() {
     private var MAX_DRAG: Int = 0
-
-
-    internal lateinit var detail: Detail
+    private lateinit var detail: Detail
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,10 +60,15 @@ class DetailActivity(override val layout: Int = R.layout.activity_detail) : Base
             }
 
             override fun finish() {
+
                 supportFinishAfterTransition()
             }
         })
         bindViews()
+
+        ViewCompat.setOnApplyWindowInsetsListener(iv_cover, { v, insets ->
+            insets.consumeSystemWindowInsets()
+        })
 
 //        materialMenu.animateIconState(MaterialMenuDrawable.IconState.ARROW)
     }

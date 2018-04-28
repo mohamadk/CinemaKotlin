@@ -1,248 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.mkhaleghy.cinemakt.tools.views.DraggableConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLayDetail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
     tools:context=".main.detail.DetailActivity">
-
 
     <com.mkhaleghy.cinemakt.tools.views.RampImageView
         android:id="@+id/iv_cover"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="fitXY"
+        android:fitsSystemWindows="true"
         android:src="@drawable/walle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:riv_rampHeight="80dp"
         app:riv_rampStartPercent=".45" />
 
-    <android.support.design.widget.AppBarLayout
+    <com.mkhaleghy.cinemakt.tools.views.DraggableConstraintLayout
+        android:id="@+id/mainLayDetail"
         android:layout_width="match_parent"
-        android:fitsSystemWindows="true"
-        app:elevation="0dp"
-        android:background="@color/transparent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbarDetail"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            app:elevation="0dp">
 
-
-        </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/iv_play"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintBottom_toTopOf="@+id/iconTopSpace"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_play_button" />
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/card"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:transitionName="card"
-        android:visibility="visible"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topGuideline"/>
-
-
-    <android.support.constraint.Guideline
-        android:id="@+id/topGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="150dp" />
-
-
-    <android.support.v4.widget.Space
-        android:id="@+id/iconTopSpace"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/topGuideline" />
-
-    <org.angmarch.views.NiceSpinner
-        android:id="@+id/timeSpinner"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginRight="10dp"
-        android:elevation="11dp"
-        app:backgroundSelector="@drawable/spinner_back"
-        app:layout_constraintRight_toRightOf="@id/card"
-        app:layout_constraintTop_toTopOf="@+id/iconTopSpace"
-        tools:background="@color/green_300" />
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:elevation="11dp"
-        android:textAppearance="@style/Title"
-        android:transitionName="title"
-        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
-        app:layout_constraintLeft_toRightOf="@+id/iv_icon"
-        app:layout_constraintRight_toRightOf="@id/card"
-        app:layout_constraintTop_toTopOf="@id/card"
-        tools:text="Moonlight" />
-
-    <TextView
-        android:id="@+id/tv_subtitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:elevation="11dp"
-        android:gravity="left"
-        android:textAppearance="@style/Small"
-        android:textColor="@color/subtitle_color"
-        android:transitionName="subtitle"
-        app:layout_constraintLeft_toRightOf="@+id/iv_icon"
-        app:layout_constraintRight_toRightOf="@id/card"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
-        tools:text="by jordan Vogt-Roberts" />
-
-    <android.support.v7.widget.AppCompatRatingBar
-        android:id="@+id/rb_rate"
-        style="?android:ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="15dp"
-        android:elevation="11dp"
-        android:isIndicator="true"
-        android:transitionName="rate"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_icon"
-        app:layout_constraintLeft_toRightOf="@+id/iv_icon"
-        tools:rating="4" />
-
-    <TextView
-
-        android:id="@+id/tv_rate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:elevation="11dp"
-        android:gravity="left"
-        android:text="3.1/5"
-        android:textAppearance="@style/Small"
-        android:textColor="@color/subtitle_color"
-        app:layout_constraintLeft_toRightOf="@+id/rb_rate"
-        app:layout_constraintRight_toRightOf="@id/card"
-        app:layout_constraintTop_toTopOf="@id/rb_rate" />
-
-
-    <LinearLayout
-        android:id="@+id/ll_infoLay"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="11dp"
-        android:orientation="vertical"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/card"
-        app:layout_constraintRight_toRightOf="@id/card"
-        app:layout_constraintTop_toBottomOf="@id/iv_icon">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <View
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbarDetail"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_gravity="bottom"
+                android:layout_height="?attr/actionBarSize">
 
-                android:background="@color/grey_200" />
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
 
-            <com.gigamole.navigationtabstrip.NavigationTabStrip
-                android:id="@+id/nts_center"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_gravity="center"
-                app:nts_active_color="@color/black"
-                app:nts_color="@color/black"
-                app:nts_corners_radius="3.5dp"
-                app:nts_factor="0.8"
-                app:nts_gravity="bottom"
-                app:nts_inactive_color="@color/colorAccent"
-                app:nts_type="line"
-                app:nts_weight="3dp" />
-        </FrameLayout>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintBottom_toTopOf="@+id/iconTopSpace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_play_button" />
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
+        <android.support.v7.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:transitionName="card"
+            android:visibility="visible"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/topGuideline" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/topGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="150dp" />
+
+        <android.support.v4.widget.Space
+            android:id="@+id/iconTopSpace"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/topGuideline" />
 
+        <org.angmarch.views.NiceSpinner
+            android:id="@+id/timeSpinner"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:elevation="11dp"
+            app:backgroundSelector="@drawable/spinner_back"
+            app:layout_constraintRight_toRightOf="@id/card"
+            app:layout_constraintTop_toTopOf="@+id/iconTopSpace"
+            tools:background="@color/green_300" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:elevation="11dp"
+            android:textAppearance="@style/Title"
+            android:transitionName="title"
+            app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+            app:layout_constraintLeft_toRightOf="@+id/iv_icon"
+            app:layout_constraintRight_toRightOf="@id/card"
+            app:layout_constraintTop_toTopOf="@id/card"
+            tools:text="Moonlight" />
 
-    <com.github.siyamed.shapeimageview.RoundedImageView
-        android:id="@+id/iv_icon_cover"
-        android:layout_width="120dp"
-        android:layout_height="170dp"
-        android:layout_marginLeft="10dp"
-        android:clickable="false"
-        android:elevation="11dp"
-        android:src="@drawable/walle"
-        android:visibility="invisible"
-        app:layout_constraintLeft_toLeftOf="@+id/card"
-        app:layout_constraintTop_toTopOf="@+id/iconTopSpace"
-        app:siRadius="8dp" />
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:elevation="11dp"
+            android:gravity="left"
+            android:textAppearance="@style/Small"
+            android:textColor="@color/subtitle_color"
+            android:transitionName="subtitle"
+            app:layout_constraintLeft_toRightOf="@+id/iv_icon"
+            app:layout_constraintRight_toRightOf="@id/card"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="by jordan Vogt-Roberts" />
 
-    <com.github.siyamed.shapeimageview.RoundedImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="120dp"
-        android:layout_height="170dp"
-        android:layout_marginLeft="10dp"
-        android:clickable="false"
-        android:elevation="11dp"
-        android:src="@drawable/walle"
-        android:transitionName="icon"
-        app:layout_constraintLeft_toLeftOf="@+id/card"
-        app:layout_constraintTop_toTopOf="@+id/iconTopSpace"
-        app:siRadius="8dp" />
+        <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/rb_rate"
+            style="?android:ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:elevation="11dp"
+            android:isIndicator="true"
+            android:transitionName="rate"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_icon"
+            app:layout_constraintLeft_toRightOf="@+id/iv_icon"
+            tools:rating="4" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/gl_iconBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="290dp" />
+        <TextView
+            android:id="@+id/tv_rate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:elevation="11dp"
+            android:gravity="left"
+            android:text="3.1/5"
+            android:textAppearance="@style/Small"
+            android:textColor="@color/subtitle_color"
+            app:layout_constraintLeft_toRightOf="@+id/rb_rate"
+            app:layout_constraintRight_toRightOf="@id/card"
+            app:layout_constraintTop_toTopOf="@id/rb_rate" />
 
+        <LinearLayout
+            android:id="@+id/ll_infoLay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="11dp"
+            android:orientation="vertical"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/card"
+            app:layout_constraintRight_toRightOf="@id/card"
+            app:layout_constraintTop_toBottomOf="@id/iv_icon">
 
-    <ImageView
-        android:id="@+id/iv_ticket"
-        android:layout_width="60dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/blue_shape"
-        android:elevation="11dp"
-        android:padding="5dp"
-        android:src="@drawable/ticket"
-        android:transitionName="ticket"
-        android:translationX="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/rb_rate"
-        app:layout_constraintRight_toRightOf="parent" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/grey_200" />
 
-</com.mkhaleghy.cinemakt.tools.views.DraggableConstraintLayout>
+                <com.gigamole.navigationtabstrip.NavigationTabStrip
+                    android:id="@+id/nts_center"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center"
+                    app:nts_active_color="@color/black"
+                    app:nts_color="@color/black"
+                    app:nts_corners_radius="3.5dp"
+                    app:nts_factor="0.8"
+                    app:nts_gravity="bottom"
+                    app:nts_inactive_color="@color/colorAccent"
+                    app:nts_type="line"
+                    app:nts_weight="3dp" />
+            </FrameLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <com.github.siyamed.shapeimageview.RoundedImageView
+            android:id="@+id/iv_icon_cover"
+            android:layout_width="120dp"
+            android:layout_height="170dp"
+            android:layout_marginLeft="10dp"
+            android:clickable="false"
+            android:elevation="11dp"
+            android:src="@drawable/walle"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="@+id/card"
+            app:layout_constraintTop_toTopOf="@+id/iconTopSpace"
+            app:siRadius="8dp" />
+
+        <com.github.siyamed.shapeimageview.RoundedImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="120dp"
+            android:layout_height="170dp"
+            android:layout_marginLeft="10dp"
+            android:clickable="false"
+            android:elevation="11dp"
+            android:src="@drawable/walle"
+            android:transitionName="icon"
+            app:layout_constraintLeft_toLeftOf="@+id/card"
+            app:layout_constraintTop_toTopOf="@+id/iconTopSpace"
+            app:siRadius="8dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/gl_iconBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="290dp" />
+
+        <ImageView
+            android:id="@+id/iv_ticket"
+            android:layout_width="60dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/blue_shape"
+            android:elevation="11dp"
+            android:padding="5dp"
+            android:src="@drawable/ticket"
+            android:transitionName="ticket"
+            android:translationX="60dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rb_rate"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </com.mkhaleghy.cinemakt.tools.views.DraggableConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>
