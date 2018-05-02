@@ -14,7 +14,7 @@
         android:rotation="180"
         app:layout_behavior="com.mkhaleghy.cinemakt.main.RampLayoutBehavior"
         app:layout_scrollFlags="scroll|enterAlways"
-        app:riv_rampColor="@color/red_300"
+        app:riv_rampColor="@color/colorPrimary"
         app:riv_rampHeight="80dp"
         tools:background="@color/amber_800" />
 
@@ -54,7 +54,6 @@
             tools:background="@color/green_300"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@color/green_700"
             android:clipToPadding="false"
             android:paddingLeft="16dp"
             android:paddingRight="16dp" />

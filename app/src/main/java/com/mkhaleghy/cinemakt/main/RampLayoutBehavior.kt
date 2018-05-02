@@ -23,14 +23,14 @@ class RampLayoutBehavior constructor(context: Context, attrs: AttributeSet) :
     }
 
     override fun onDependentViewChanged(parent: CoordinatorLayout, child: RampImageView, dependency: View): Boolean {
+        val scaleFactor = (if (dependency.y<0) 1.5f else 1f)
         child.translationY =
                 (dependency.y
-                        + (dependency.height * (dependency.scaleY - 1))/2f
+                        + (dependency.height * (dependency.scaleY - scaleFactor)) / 2f
                         + dependency.bottom).toInt()
                         .toFloat()
 
         val collapsingToolbar = dependency.findViewById<CollapsingToolbarLayout>(R.id.main_collapsing)
-
         collapsingToolbar.alpha = 1 - Math.abs(dependency.top.toFloat() / (dependency as AppBarLayout).totalScrollRange.toFloat())
 
         return true
