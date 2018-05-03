@@ -1,18 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mkhaleghy.cinemakt.MainActivity">
+    tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.mkhaleghy.cinemakt.tools.views.RampImageView
+        android:id="@+id/riv_ramp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rotation="180"
+        app:layout_behavior="com.mkhaleghy.cinemakt.main.RampLayoutBehavior"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:riv_rampColor="@color/colorPrimary"
+        app:riv_rampHeight="80dp"
+        tools:background="@color/amber_800" />
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/apl_appbar"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:elevation="0dp">
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/main.collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|snap">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                tools:background="@color/red_400" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_man_running" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <com.mkhaleghy.cinemakt.tools.views.SlidingTabLayout
+            android:id="@+id/stl_tabs"
+            tools:background="@color/green_300"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:clipToPadding="false"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+
+</android.support.design.widget.CoordinatorLayout>
