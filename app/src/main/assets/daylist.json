@@ -2,6 +2,7 @@
   "m": [
     {
       "i": "1",
+      "ty":0,
       "ic": "https://fyf.tac-cdn.net/images/products/large/BF116-11KM.jpg",
       "t": "WALLE",
       "st": "by Andrew Stanton",
@@ -62,6 +63,7 @@
     },
     {
       "i": "2",
+      "ty":0,
       "ic": "https://fyf.tac-cdn.net/images/products/large/BF116-11KM.jpg",
       "t": "WALLE",
       "st": "by Andrew Stanton",
@@ -121,7 +123,8 @@
       }
     },
     {
-      "i": "2",
+      "i": "3",
+      "ty":0,
       "ic": "https://fyf.tac-cdn.net/images/products/large/BF116-11KM.jpg",
       "t": "WALLE",
       "st": "by Andrew Stanton",
@@ -181,7 +184,8 @@
       }
     },
     {
-      "i": "2",
+      "i": "4",
+      "ty":0,
       "ic": "https://fyf.tac-cdn.net/images/products/large/BF116-11KM.jpg",
       "t": "WALLE",
       "st": "by Andrew Stanton",
@@ -241,7 +245,8 @@
       }
     },
     {
-      "i": "2",
+      "i": "5",
+      "ty":0,
       "ic": "https://fyf.tac-cdn.net/images/products/large/BF116-11KM.jpg",
       "t": "WALLE",
       "st": "by Andrew Stanton",
@@ -301,7 +306,8 @@
       }
     },
     {
-      "i": "2",
+      "i": "6",
+      "ty":0,
       "ic": "https://fyf.tac-cdn.net/images/products/large/BF116-11KM.jpg",
       "t": "WALLE",
       "st": "by Andrew Stanton",

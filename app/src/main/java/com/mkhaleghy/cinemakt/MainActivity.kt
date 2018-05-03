@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity(override val layout: Int = R.layout.activity_main) : BaseActivity()
         , DayListFragment.OnDayListInteractionListener
-        , BaseFragment.OnBaseFragmentIntraction {
+        {
     val TAG = "MainActivity"
 
     private lateinit var materialMenu: MaterialMenuDrawable
@@ -28,7 +28,7 @@ class MainActivity(override val layout: Int = R.layout.activity_main) : BaseActi
             mainLay.fitsSystemWindows=true
             riv_ramp.fitsSystemWindows=true
         }
-        ViewCompat.setOnApplyWindowInsetsListener(riv_ramp, { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(riv_ramp, { _, insets ->
             insets.consumeSystemWindowInsets()
         })
 

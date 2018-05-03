@@ -26,7 +26,7 @@ data class Movie(
         val time: String
         , @SerializedName("d")
         val detail: Detail
-        , override val type: Int) : Element()
+        , @SerializedName("ty")override val type: Int) : Element()
 
 @Parcelize
 data class Detail(

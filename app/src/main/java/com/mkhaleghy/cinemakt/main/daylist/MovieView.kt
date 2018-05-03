@@ -30,7 +30,7 @@ class MovieView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
         popupMenu.inflate(R.menu.item_list_menu)
         popupMenu.setOnMenuItemClickListener(this)
 
-        iv_overflow.setOnClickListener { v -> popupMenu.show() }
+        iv_overflow.setOnClickListener { popupMenu.show() }
     }
 
     override fun bind(item: Movie, mListener: OnAdapterInteractionListener) {
@@ -44,7 +44,7 @@ class MovieView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
         tv_time.text = item.time
         rb_rate.rating = item.rate
 
-        setOnClickListener { v ->
+        setOnClickListener {
             val ticketLoc = IntArray(2)
             iv_ticket.getLocationInWindow(ticketLoc)
             mListener.detailSelected()
@@ -71,4 +71,5 @@ class MovieView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
         }
         return false
     }
+
 }

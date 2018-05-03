@@ -27,7 +27,7 @@ object Utils {
         get() = Ci.context.resources.getDimensionPixelSize(R.dimen.abc_action_bar_default_height_material)
 
     fun loadFileFromAssets(path: String): String? {
-        var content: String? = null
+        var content: String? 
         try {
             val `is` = loadInputStreamFromAssetFile(path)
             val size = `is`!!.available()

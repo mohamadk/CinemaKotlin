@@ -59,7 +59,7 @@ class DayListFragment : Fragment(), OnAdapterInteractionListener {
 
         val overScroll = RecyclerOverScrollHandler(mListener!!.appbarLayout(), rv_list)
         val decorator = VerticalOverScrollBounceEffectDecorator(overScroll)
-        decorator.setOverScrollUpdateListener { decor, state, offset ->
+        decorator.setOverScrollUpdateListener { _, _, offset ->
             if (!overScroll.isInAbsoluteEnd) {
                 mListener?.stretch(1 + offset / getView()!!.height, offset.toInt())
             }

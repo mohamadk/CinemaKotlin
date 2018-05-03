@@ -3,6 +3,7 @@ package com.mkhaleghy.cinemakt.app
 import android.app.Application
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.mkhaleghy.cinemakt.base.BaseInflater
 
 class Ci : Application() {
 
@@ -11,9 +12,7 @@ class Ci : Application() {
         context = this
 
         gson = GsonBuilder()
-                .registerTypeAdapterFactory(CinemaTypeAdapterFactory.create())
                 .create()
-
 
     }
 

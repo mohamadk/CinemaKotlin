@@ -30,7 +30,7 @@ class DetailActivity(override val layout: Int=R.layout.activity_detail) : BaseAc
 
         detail = intent.getParcelableExtra(PAR_DETAIL)
         initViews()
-        toolbarDetail.setTitle("")
+        toolbarDetail.title = ""
         setSupportActionBar(toolbarDetail)
 
         pager.adapter = InfoPageAdapter(supportFragmentManager, detail.detailInfoPages)
@@ -46,7 +46,7 @@ class DetailActivity(override val layout: Int=R.layout.activity_detail) : BaseAc
             }
 
             override fun onDrag(dy: Int) {
-                if (dy >= 0 && dy <= MAX_DRAG) {
+                if (dy in 0..MAX_DRAG) {
                     iv_cover.rampDy = dy.toFloat()
                     card.translationY = dy.toFloat()
                     timeSpinner.translationY = dy.toFloat()
@@ -60,13 +60,12 @@ class DetailActivity(override val layout: Int=R.layout.activity_detail) : BaseAc
             }
 
             override fun finish() {
-
                 supportFinishAfterTransition()
             }
         })
         bindViews()
 
-        ViewCompat.setOnApplyWindowInsetsListener(iv_cover, { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(iv_cover, { _, insets ->
             insets.consumeSystemWindowInsets()
         })
 

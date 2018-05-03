@@ -42,9 +42,6 @@ class ViewPagerTransform(var offset: Float = .5F) : ViewPager.PageTransformer {
 
     private fun findVisibleItems() {
         var firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
-//        if (firstVisibleItemPosition > 0) {
-//            firstVisibleItemPosition--
-//        }
 
         val lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
 

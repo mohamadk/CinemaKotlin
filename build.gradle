@@ -31,7 +31,7 @@ project.ext{
     compileSdkVersion=27
     minSdkVersion=15
     targetSdkVersion=27
-    supportLibrary="27.1.0"
+    supportLibrary="27.1.1"
 
     lifeCycleVersion="1.1.1"
 }
